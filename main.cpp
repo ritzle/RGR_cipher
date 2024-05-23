@@ -1,0 +1,71 @@
+#include <iostream>
+#include <Windows.h>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+string readingFile(const string &filename)
+{
+    ifstream file(filename, ios::binary);
+    if (!file.is_open())
+    {
+        cerr << "Unable to open file" << endl;
+        throw "Unable to open file";
+    }
+
+    string content((istreambuf_iterator<char>(file)), istreambuf_iterator<char>());
+    file.close();
+    return content;
+}
+
+void writeToFile(const string &text, const string &filename)
+{
+    ofstream file(filename, ios::binary | ios::trunc);
+    if (!file.is_open())
+    {
+        throw "Unable to open file";
+        return;
+    }
+
+    file << text;
+    file.close();
+}
+
+int xorS(char a, char b)
+{
+
+    return static_cast<int>(a) ^ static_cast<int>(b);
+}
+
+string encryptMessage(const string &message, const string &key)
+{
+    string encryptedMessage;
+    for (size_t i = 0; i < message.size(); ++i)
+    {
+        encryptedMessage += static_cast<unsigned char>(xorS(message[i], key[i % key.size()]));
+    }
+    return encryptedMessage;
+}
+
+string decryptMessage(const string &encryptedMessage, const string &key)
+{
+    return encryptMessage(encryptedMessage, key); // Дешифрование - то же самое, что и шифрование в шифре Вернама
+}
+
+int main()
+{
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+
+    string key = "hi влад"; // Случайный ключ
+    string message = readingFile("messages.txt");
+
+    string encryptedMessage = encryptMessage(message, key);
+    writeToFile(encryptedMessage, "encryptedMessage.txt");
+
+    string decryptedMessage = decryptMessage(encryptedMessage, "hi влад");
+    writeToFile(decryptedMessage, "decryptedMessage.txt");
+
+    return 0;
+}
