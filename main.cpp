@@ -1,4 +1,4 @@
-#include "functionVernam.h"
+#include "functionBekon.h"
 
 using namespace std;
 
@@ -7,7 +7,7 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
-    cout << "Vernam cipher" << endl
+    cout << "Bacon cipher" << endl
          << endl;
 
     cout << "writing a text via the console or file" << endl;
@@ -27,7 +27,7 @@ int main()
     }
     else if (inputSelection == "file")
     {
-        message = readingFile("messages.txt");
+        readingFile(message, "messages.txt");
     }
     else
     {
@@ -39,38 +39,19 @@ int main()
     cin.clear();
     cin.sync();
 
-    cout << "writing a key via the console or random" << endl;
-    cout << ": ";
-    getline(cin, inputSelection);
+    map<char, int> tableKey = generateRandomTableKey();
 
-    string key;
+    vector<char> meaning0;
+    vector<char> meaning1;
 
-    if (inputSelection == "console")
-    {
-        cin.clear();
-        cin.sync();
-        cout << ": ";
-        getline(cin, key);
-        writeToFile(key, "keyEncrypt.txt");
-    }
-    else if (inputSelection == "random")
-    {
-        cin.clear();
-        cin.sync();
-        key = generateKey(message);
-        writeToFile(key, "keyEncrypt.txt");
-    }
-    else
-    {
-        cout << "unknown command2" << endl;
-        return 1;
-    }
+    distributionByValue(meaning0, meaning1, tableKey);
 
-    string encryptedMessage = encryptMessage(message, key);
+    string encryptedMessage = "";
+    encryptMessage(encryptedMessage, message, meaning0, meaning1);
     writeToFile(encryptedMessage, "encryptedMessage.txt");
 
-    string decryptedMessage = decryptMessage(encryptedMessage, key);
+    string decryptedMessage = "";
+    decryptMessage(decryptedMessage, encryptedMessage, meaning0, meaning1);
     writeToFile(decryptedMessage, "decryptedMessage.txt");
-
     return 0;
 }
