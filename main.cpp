@@ -1,4 +1,4 @@
-#include "function.h"
+#include "functionAfin.h"
 
 int main()
 {
