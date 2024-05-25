@@ -7,12 +7,12 @@ int main()
 
     int a, b, module;
 
-    RandomParameters(a, b, module);
+    RandomParametersAfin(a, b, module);
 
     cout << a << " " << b << " " << module;
 
-    encryptTheMessage(a, b, module);
-    decryptTheMessage(a, b, module);
+    encryptTheMessageAfin(a, b, module);
+    decryptTheMessageAfin(a, b, module);
 
     return 0;
 }
