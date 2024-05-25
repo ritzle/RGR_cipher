@@ -1,6 +1,6 @@
 #include "functionVernam.h"
 
-string readingFile(const string &filename)
+void readingFile(string &text, const string &filename)
 {
     ifstream file(filename, ios::binary);
     if (!file.is_open())
@@ -10,8 +10,8 @@ string readingFile(const string &filename)
     }
 
     string content((istreambuf_iterator<char>(file)), istreambuf_iterator<char>());
+    text = move(content);
     file.close();
-    return content;
 }
 
 void writeToFile(const string &text, const string &filename)
@@ -32,22 +32,21 @@ int xorS(char a, char b)
     return static_cast<int>(a) ^ static_cast<int>(b);
 }
 
-string encryptMessage(const string &message, const string &key)
+void encryptMessageVernam(string &encryptText, const string &message, const string &key)
 {
-    string encryptedMessage;
+
     for (size_t i = 0; i < message.size(); ++i)
     {
-        encryptedMessage += static_cast<unsigned char>(xorS(message[i], key[i % key.size()]));
+        encryptText += static_cast<unsigned char>(xorS(message[i], key[i % key.size()]));
     }
-    return encryptedMessage;
 }
 
-string decryptMessage(const string &encryptedMessage, const string &key)
+void decryptMessageVernam(string &encryptText, const string &encryptedMessage, const string &key)
 {
-    return encryptMessage(encryptedMessage, key); // Дешифрование - то же самое, что и шифрование в шифре Вернама
+    return encryptMessageVernam(encryptText, encryptedMessage, key); // Дешифрование - то же самое, что и шифрование в шифре Вернама
 }
 
-string generateKey(const string &message)
+string generateKeyVernam(const string &message)
 {
     string key = " ";
     int rd;
