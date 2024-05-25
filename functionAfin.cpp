@@ -1,5 +1,48 @@
 #include "functionAfin.h"
 
+void readingFile(string &text, const string &filename)
+{
+    ifstream file(filename, ios::binary);
+    if (!file.is_open())
+    {
+        cerr << "Unable to open file " << filename << endl;
+        throw "Unable to open file ";
+    }
+
+    string content((istreambuf_iterator<char>(file)), istreambuf_iterator<char>());
+    text = move(content);
+    file.close();
+}
+
+void writeToFile(const string &text, const string &filename)
+{
+    ofstream file(filename, ios::binary | ios::trunc);
+    if (!file.is_open())
+    {
+        throw "Unable to open file: " + filename;
+        return;
+    }
+
+    file << text;
+    file.close();
+}
+
+void encryptMessageAfin(string &encryptText, const string &message, int a, int b, int module)
+{
+    for (auto sim : message)
+    {
+        encryptText += encryptSimbolAfin(sim, a, b, module);
+    }
+}
+
+void decryptMessageAfin(string &decryptText, const string &encryptText, int a, int b, int module)
+{
+    for (auto sim : encryptText)
+    {
+        decryptText += decryptionSimbolAfin(sim, a, b, module);
+    }
+}
+
 bool NOD(int a, int b) // находит наибольший общий делитель
 {
     while (b != 0)
@@ -19,14 +62,7 @@ bool NOD(int a, int b) // находит наибольший общий дел�
     }
 }
 
-string InputTextAfin()
-{
-    string firstText = "";
-    getline(cin, firstText);
-    return firstText;
-}
-
-char Encrypt_simbolAfin(char simbol, int a, int b, int module)
+char encryptSimbolAfin(char simbol, int a, int b, int module)
 {
     char encryptSimbol;
 
@@ -66,7 +102,7 @@ int findInverseElement(int number, int module)
     }
 }
 
-char Decryption_simbolAfin(char simbol, int a, int b, int module)
+char decryptionSimbolAfin(char simbol, int a, int b, int module)
 {
     char openSimbol;
 
@@ -95,78 +131,4 @@ void RandomParametersAfin(int &a, int &b, int &module) // рандомные п�
 
     a = coprimeNumbersWithM[rand() % coprimeNumbersWithM.size()];
     b = 2 + rand() % 255;
-}
-
-void decryptTheMessageAfin(int a, int b, int module)
-{
-
-    ifstream fileEncrypted("encryptedMessageAfin.txt");                  // Открываем файл для чтения
-    ofstream fileDecrypted("decryptedMessageAfin.txt", std::ios::trunc); // Открываем файл для записи
-
-    // Проверяем, удалось ли открыть файл
-    if (fileEncrypted.is_open())
-    {
-
-        // Считываем сообщения построчно из файла
-        char c;
-        while (fileEncrypted.get(c))
-        {
-
-            if (fileDecrypted.is_open())
-            {                                                        // Проверяем, удалось ли открыть файл
-                fileDecrypted << Decryption_simbolAfin(c, a, b, module); // Записываем элементы массива в файл
-            }
-            else
-            {
-                std::cerr << "Не удалось открыть файл для записи." << std::endl; // Выводим сообщение об ошибке, если файл не удалось открыть
-            }
-        }
-        fileEncrypted.close(); // Закрываем файл после чтения
-        fileDecrypted.close(); // Закрываем файл после записи
-    }
-    else
-    {
-        std::cerr << "Unable to open file" << std::endl; // Выводим сообщение об ошибке, если файл не удалось открыть
-    }
-}
-
-void encryptTheMessageAfin(int a, int b, int module)
-{
-    std::ifstream fileMessage("openText.txt");                            // Открываем файл для чтения
-    std::ofstream fileEncrypted("encryptedMessageAfin.txt", std::ios::trunc); // Открываем файл для записи
-    if (fileMessage.is_open())
-    { // Проверяем, удалось ли открыть файл
-        string message;
-
-        // Считываем сообщения построчно из файла
-        while (getline(fileMessage, message))
-        {
-            // Проверяем, удалось ли открыть файл
-            if (fileEncrypted.is_open())
-            {
-                char c;
-                while (fileMessage.get(c))
-                {
-                    fileEncrypted << Encrypt_simbolAfin(c, a, b, module);
-                }
-
-                //  std::cout << "Массив успешно записан в файл." << std::endl;
-            }
-            else
-            {
-                std::cerr << "Не удалось открыть файл для записи." << std::endl; // Выводим сообщение об ошибке, если файл не удалось открыть
-            }
-        }
-
-        fileMessage.clear(); // Сброс состояния потока
-
-        fileMessage.close();   // Закрываем файл после чтения
-        fileEncrypted.close(); // Закрываем файл после записи
-    }
-    else
-    {
-        std::cerr << "Unable to open file" << std::endl; // Выводим сообщение об ошибке, если файл не удалось открыть
-        fileMessage.close();                             // Закрываем файл после чтения
-        fileEncrypted.close();
-    }
 }
