@@ -10,6 +10,9 @@
 #include <ctime>
 #include <fstream>
 #include <sstream>
+#include <numeric>
+
+#include <stdio.h>
 
 using namespace std;
 

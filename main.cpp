@@ -1,145 +1,165 @@
 #include "functionAfin.h"
 
-
 int main()
 {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
     cout << "Afin cipher" << endl
-        << endl;
-    string inputSelection;
-    while (inputSelection != "exit")
-    {
-        cout << "Writing a text via the 'console' or 'file' or 'exit'" << endl;
-        cout << "<<< ";
+         << endl;
 
-        
+    string inputSelection;
+    string message;
+
+    int decA, decB, decModule;
+
+MetkaIntputText:
+
+    while (true)
+    {
+        cout << "Writing a text via the 'console' or 'file'" << endl;
+        cout << ": ";
+
         getline(cin, inputSelection);
         cout << endl;
 
-        string message;
-
         if (inputSelection == "console")
         {
-            cout << "Input message\n<<< ";
+            cout << "Input message\n:";
             getline(cin, message);
             writeToFile(message, "inputConsoleMessage.txt");
+            break;
         }
         else if (inputSelection == "file")
         {
             readingFile(message, "openText.txt");
+            break;
         }
-        else if (inputSelection == "exit") return 1;
-        else 
+        else
         {
-            cout << "unknown command" << endl;
-            return 1;
+            cout << "unknown command, please try again" << endl;
+            goto MetkaIntputText;
         }
-        cout << endl;
+    }
+    cout << endl;
 
-        cin.clear();
-        cin.sync();
+    cin.clear();
+    cin.sync();
 
+MetkaIntputParametrsEncryption:
+    int a, b, module;
+
+    while (true)
+    {
         cout << "recording parameters for encryption via the 'console' or 'random'" << endl;
-        cout << "<<< ";
+        cout << ": ";
         getline(cin, inputSelection);
 
-    enterAgain: // проверка на правильность ввода параметров
-
-        int a, b, module;
         string key; // для записи в фаил параметров
 
         if (inputSelection == "console")
         {
+        MetkaIntputParametrsConsole:
             module = 256;
-            cout << "enter only a b (for module = 256)\n<<<";
-            cin >> a;
-            cin >> b;
+            cout << "enter only a b (for module = 256)\n: ";
+
+            if (!(cin >> a >> b))
+            {
+                cout << "a and b must be numbers\n";
+                cin.clear();
+                cin.ignore(1000, '\n');
+                goto MetkaIntputParametrsConsole;
+            }
 
             if (checkAffineCipherParams(a, module))
             {
-
                 key = to_string(a) + " " + to_string(b) + " " + to_string(module);
                 writeToFile(key, "keyEncrypt.txt");
                 writeToFile(key, "keyDecrypt.txt");
+                break;
             }
-            else if (inputSelection == "exit") return 1;
             else
             {
                 cout << "enter again\n";
-                goto enterAgain;
+                goto MetkaIntputParametrsConsole;
             }
         }
         else if (inputSelection == "random")
         {
             RandomParametersAfin(a, b, module);
-
             key = to_string(a) + " " + to_string(b) + " " + to_string(module);
             writeToFile(key, "keyEncrypt.txt");
             writeToFile(key, "keyDecrypt.txt");
+            break;
         }
-        else if (inputSelection == "exit") return 1;
         else
         {
-            cout << "unknown command" << endl;
+            cout << "unknown command, please try again" << endl;
+            goto MetkaIntputParametrsEncryption;
         }
+    }
+    cout << endl;
 
-        // шифруем текст
-        string encryptedMessage = "";
-        encryptMessageAfin(encryptedMessage, message, a, b, module);
-        writeToFile(encryptedMessage, "encryptedMessage.txt");
+    // шифруем текст
+    string encryptedMessage = "";
+    encryptMessageAfin(encryptedMessage, message, a, b, module);
+    writeToFile(encryptedMessage, "encryptedMessage.txt");
 
-        // расшифровываем текст
+    // расшифровываем текст
 
-        cin.clear();
-        cin.sync();
+    cin.clear();
+    cin.sync();
 
+MetkaIntputParametrsDecryption:
+    while (true)
+    {
         cout << "recording parameters for decryption via the 'console' or 'file'(file is true)" << endl;
-        cout << "<<< ";
+        cout << ": ";
         getline(cin, inputSelection);
 
-    enterAgain2: // проверка на правильность ввода параметров
-
-        int decA, decB, decModule;
         string decKey; // для записи в фаил параметров
 
         if (inputSelection == "console")
         {
-            module = 256;
-            cout << "enter  a b module\n<<<";
-            cin >> decA;
-            cin >> decB;
-            cin >> decModule;
+            cout << "enter  a b module\n: ";
+
+        MetkaIntputParametrsDecryptionConsole:
+
+            if (!(cin >> decA >> decB >> decModule))
+            {
+                cout << "a and b and Module must be numbers\n";
+                cin.clear();
+                cin.ignore(1000, '\n');
+                goto MetkaIntputParametrsDecryptionConsole;
+            }
 
             if (checkAffineCipherParams(decA, decModule))
             {
-
                 decKey = to_string(decA) + " " + to_string(decB) + " " + to_string(decModule);
                 writeToFile(decKey, "keyDecrypt.txt");
+                break;
             }
-            else if (inputSelection == "exit") return 1;
             else
             {
                 cout << "enter again\n";
-                goto enterAgain2;
+                goto MetkaIntputParametrsDecryptionConsole;
             }
         }
         else if (inputSelection == "file")
         {
             readKeyDecryptAfin(decA, decB, decModule, "keyDecrypt");
+            break;
         }
-        else if (inputSelection == "exit") return 1;
         else
         {
-            cout << "unknown command" << endl;
+            cout << "unknown command, please try again" << endl;
+            goto MetkaIntputParametrsDecryption;
         }
-
-        string decryptedMessage = "";
-        decryptMessageAfin(decryptedMessage, encryptedMessage, decA, decB, decModule);
-        writeToFile(decryptedMessage, "decryptedMessage.txt");
-
-        
     }
+
+    string decryptedMessage = "";
+    decryptMessageAfin(decryptedMessage, encryptedMessage, decA, decB, decModule);
+    writeToFile(decryptedMessage, "decryptedMessage.txt");
+
     return 0;
 }
