@@ -15,7 +15,7 @@ void EncryptedTextFileRSA()
     cin >> openExponent >> n;
 
     ifstream openText("openText.txt");
-    ofstream encryptText("encryptTextRSA.txt");
+    ofstream encryptText("encryptedMessage.txt");
 
     if (openText.is_open())
     {
@@ -45,7 +45,7 @@ void EncryptedTextFileRSA()
     {
         std::cerr << "Unable to open file" << std::endl; // Выводим сообщение об ошибке, если файл не удалось открыть
     }
-    cout << "Зашифрованный текст записан в файл (encryptTextRSA.txt) " << endl;
+    cout << "Зашифрованный текст записан в файл (encryptedMessage.txt) " << endl;
 }
 
 void EncryptTextFromTheConsoleRSA()
@@ -116,7 +116,7 @@ void DecryptedTextFileRSA()
     cout << "Введите закрытый ключ" << endl;
     cin >> inverseForOpenExponent >> n;
 
-    ofstream decryptText("decryptTextRSA.txt");
+    ofstream decryptText("decryptedMessage.txt");
 
     if (decryptText.is_open())
     {
@@ -137,7 +137,7 @@ void DecryptedTextFileRSA()
     {
         std::cerr << "Unable to open file" << std::endl; // Выводим сообщение об ошибке, если файл не удалось открыть
     }
-    cout << "Расшифрованный текст записан в файл (decryptTextRSA.txt) " << endl;
+    cout << "Расшифрованный текст записан в файл (decryptedMessage.txt) " << endl;
 
 }
 void Eratosthenes(vector<int>& vector_Prime_Nums) {  //решето Эратосфена 2- 1000 диапазон

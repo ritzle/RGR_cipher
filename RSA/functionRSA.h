@@ -1,5 +1,5 @@
-#ifdef FUNCTION_RSA_H
-#define FUNCTION_RSA_H
+#ifdef FUNCTIONRSA_H
+#define FUNCTIONRSA_H
 
 #include <iostream>
 #include <random>
