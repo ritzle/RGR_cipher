@@ -14,9 +14,9 @@ using namespace std;
 
 string readingFile(const string &filename);
 void writeToFile(const string &text, const string &filename);
-int xorS(char a, char b);
-string encryptMessage(const string &message, const string &key);
-string decryptMessage(const string &encryptedMessage, const string &key);
-string generateKey(const string &message);
+int xorSVernam(char a, char b);
+string encryptMessageVernam(const string &message, const string &key);
+string decryptMessageVernam(const string &encryptedMessage, const string &key);
+string generateKeyVernam(const string &message);
 
 #endif

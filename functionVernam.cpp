@@ -27,27 +27,27 @@ void writeToFile(const string &text, const string &filename)
     file.close();
 }
 
-int xorS(char a, char b)
+int xorSVernam(char a, char b)
 {
     return static_cast<int>(a) ^ static_cast<int>(b);
 }
 
-string encryptMessage(const string &message, const string &key)
+string encryptMessageVernam(const string &message, const string &key)
 {
     string encryptedMessage;
     for (size_t i = 0; i < message.size(); ++i)
     {
-        encryptedMessage += static_cast<unsigned char>(xorS(message[i], key[i % key.size()]));
+        encryptedMessage += static_cast<unsigned char>(xorSVernam(message[i], key[i % key.size()]));
     }
     return encryptedMessage;
 }
 
-string decryptMessage(const string &encryptedMessage, const string &key)
+string decryptMessageVernam(const string &encryptedMessage, const string &key)
 {
-    return encryptMessage(encryptedMessage, key); // Дешифрование - то же самое, что и шифрование в шифре Вернама
+    return encryptMessageVernam(encryptedMessage, key); // Дешифрование - то же самое, что и шифрование в шифре Вернама
 }
 
-string generateKey(const string &message)
+string generateKeyVernam(const string &message)
 {
     string key = " ";
     int rd;

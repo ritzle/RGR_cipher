@@ -23,11 +23,11 @@ int main()
     {
         cout << ": ";
         getline(cin, message);
-        writeToFile(message, "inputConsoleMessage.txt");
+        writeToFile(message, "inputConsoleMessageVernam.txt");
     }
     else if (inputSelection == "file")
     {
-        message = readingFile("messages.txt");
+        message = readingFile("openText.txt");
     }
     else
     {
@@ -51,14 +51,14 @@ int main()
         cin.sync();
         cout << ": ";
         getline(cin, key);
-        writeToFile(key, "keyEncrypt.txt");
+        writeToFile(key, "keyEncryptVernam.txt");
     }
     else if (inputSelection == "random")
     {
         cin.clear();
         cin.sync();
-        key = generateKey(message);
-        writeToFile(key, "keyEncrypt.txt");
+        key = generateKeyVernam(message);
+        writeToFile(key, "keyEncryptVernam.txt");
     }
     else
     {
@@ -66,11 +66,11 @@ int main()
         return 1;
     }
 
-    string encryptedMessage = encryptMessage(message, key);
-    writeToFile(encryptedMessage, "encryptedMessage.txt");
+    string encryptedMessage = encryptMessageVernam(message, key);
+    writeToFile(encryptedMessage, "encryptedMessageVernam.txt");
 
-    string decryptedMessage = decryptMessage(encryptedMessage, key);
-    writeToFile(decryptedMessage, "decryptedMessage.txt");
+    string decryptedMessage = decryptMessageVernam(encryptedMessage, key);
+    writeToFile(decryptedMessage, "decryptedMessageVernam.txt");
 
     return 0;
 }
