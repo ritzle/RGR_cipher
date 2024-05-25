@@ -1,5 +1,5 @@
-#ifdef HEADER_H
-#define HEADER_H
+#ifdef FUNCTION_RSA_H
+#define FUNCTION_RSA_H
 
 #include <iostream>
 #include <random>
@@ -10,6 +10,7 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+
 using namespace std;
 
 void DecryptedTextFileRSA();
