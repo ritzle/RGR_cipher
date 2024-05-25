@@ -1,20 +1,7 @@
 #ifndef FUNCTION_H
 #define FUNCTION_H
 
-#include <iostream>
-#include <Windows.h>
-#include <vector>
-#include <string>
-#include <random>
-#include <algorithm>
-#include <ctime>
-#include <fstream>
-#include <sstream>
-#include <numeric>
-
-#include <stdio.h>
-
-using namespace std;
+#include "ciphers.h"
 
 bool NOD(int a, int b);
 
@@ -26,9 +13,6 @@ int extendedEuclideanAlgorithm(int number, int module, int &x, int &y);
 int findInverseElement(int number, int module);
 
 void RandomParametersAfin(int &a, int &b, int &module);
-
-void readingFile(string &text, const string &filename);
-void writeToFile(const string &text, const string &filename);
 
 void encryptMessageAfin(string &encryptText, const string &message, int a, int b, int module);
 void decryptMessageAfin(string &decryptText, const string &encryptText, int a, int b, int module);

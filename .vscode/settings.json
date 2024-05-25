@@ -47,6 +47,11 @@
 		"xmemory": "cpp",
 		"xstddef": "cpp",
 		"xtr1common": "cpp",
+<<<<<<< HEAD
 		"xutility": "cpp"
+=======
+		"xutility": "cpp",
+		"bitset": "cpp"
+>>>>>>> developVernam
 	}
 }

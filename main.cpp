@@ -1,6 +1,7 @@
 #include "ciphers.h"
 
 #include "functionAfin.h"
+#include "functionVernam.h"
 
 int main()
 {
@@ -10,7 +11,7 @@ int main()
 
     while (true)
     {
-        cout << "Введите название шифра (Affine, Вернам, Бэкона, RSA, Скитала) или 'exit' для выхода: ";
+        cout << "Введите название шифра (Affine, Vernam, Бэкона, RSA, Скитала) или 'exit' для выхода: ";
         getline(cin, cipherType);
 
         if (cipherType == "exit")
@@ -19,11 +20,13 @@ int main()
         }
         else if (cipherType == "Affine")
         {
-            Afin();
+            Affin();
             cout << "the result was successfully recorded\n";
         }
-        else if (cipherType == "Вернам")
+        else if (cipherType == "Vernam")
         {
+            Vernam();
+            cout << "the result was successfully recorded\n";
         }
         else if (cipherType == "Бэкона")
         {
