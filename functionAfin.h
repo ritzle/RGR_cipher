@@ -1,7 +1,24 @@
-#ifndef FUNCTION_H
-#define FUNCTION_H
+#ifndef FUNCTIONAFIN_H
+#define FUNCTIONAFIN_H
 
-#include "ciphers.h"
+#include <numeric>
+#include <stdio.h>
+#include <iostream>
+#include <Windows.h>
+#include <vector>
+#include <string>
+#include <random>
+#include <ctime>
+#include <fstream>
+#include <sstream>
+#include <bitset>
+#include <algorithm>
+#include <map>
+#include <cstdlib>
+
+#include "readANDwrite.h"
+
+using namespace std;
 
 bool NOD(int a, int b);
 
