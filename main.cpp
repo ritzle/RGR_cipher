@@ -67,10 +67,10 @@ int main()
     }
 
     string encryptedMessage = encryptMessageVernam(message, key);
-    writeToFile(encryptedMessage, "encryptedMessageVernam.txt");
+    writeToFile(encryptedMessage, "encryptedMessage.txt");
 
     string decryptedMessage = decryptMessageVernam(encryptedMessage, key);
-    writeToFile(decryptedMessage, "decryptedMessageVernam.txt");
+    writeToFile(decryptedMessage, "decryptedMessage.txt");
 
     return 0;
 }
