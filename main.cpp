@@ -62,7 +62,7 @@ enterAgain: // проверка на правильность ввода пар�
         }
         else
         {
-            cout << "enter again";
+            cout << "enter again\n";
             goto enterAgain;
         }
     }
@@ -114,7 +114,7 @@ enterAgain2: // проверка на правильность ввода пар
         }
         else
         {
-            cout << "enter again";
+            cout << "enter again\n";
             goto enterAgain2;
         }
     }
