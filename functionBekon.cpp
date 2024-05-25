@@ -27,7 +27,7 @@ void writeToFile(const string &text, const string &filename)
     file.close();
 }
 
-map<char, int> generateRandomTableKey()
+map<char, int> generateRandomTableKeyBekon()
 {
     srand(time(NULL));
 
@@ -38,15 +38,15 @@ map<char, int> generateRandomTableKey()
         charMap[static_cast<char>(c)] = rand() % 2; // Генерация случайного значения 0 или 1
     }
 
-    ofstream file("tableKey.txt", std::ios::out);
+    ofstream file("tableKeyBekon.txt", std::ios::out);
     if (!file.is_open())
     {
-        throw std::runtime_error("Не удалось открыть файл 'tableKey.txt'");
+        throw std::runtime_error("Не удалось открыть файл 'tableKeyBekon.txt'");
     }
 
     for (const auto &pair : charMap)
     {
-        std::string binaryString = charToBinary(pair.first);
+        std::string binaryString = charToBinaryBekon(pair.first);
         file << pair.first << "\t" << binaryString << "\t" << pair.second << "\n";
     }
 
@@ -54,7 +54,7 @@ map<char, int> generateRandomTableKey()
     return charMap;
 }
 
-void distributionByValue(vector<char> &meaning0, vector<char> &meaning1, const map<char, int> &table)
+void distributionByValueBekon(vector<char> &meaning0, vector<char> &meaning1, const map<char, int> &table)
 {
     for (auto tableMeaning : table)
     {
@@ -69,14 +69,14 @@ void distributionByValue(vector<char> &meaning0, vector<char> &meaning1, const m
     }
 }
 
-string charToBinary(char c)
+string charToBinaryBekon(char c)
 {
     int asciiValue = static_cast<int>(c);
     bitset<8> binary(asciiValue);
     return binary.to_string();
 }
 
-char binaryToChar(const string &binaryString)
+char binaryToCharBekon(const string &binaryString)
 {
     if (binaryString.length() != 8)
     {
@@ -87,7 +87,7 @@ char binaryToChar(const string &binaryString)
     return static_cast<char>(binaryValue.to_ulong());
 }
 
-string encryptSimbol(string charBinary, vector<char> &meaning0, vector<char> &meaning1)
+string encryptSimbolBekon(string charBinary, vector<char> &meaning0, vector<char> &meaning1)
 {
     srand(time(0));
     string encryptChar = "";
@@ -98,25 +98,25 @@ string encryptSimbol(string charBinary, vector<char> &meaning0, vector<char> &me
     return encryptChar;
 }
 
-void encryptMessage(string &encryptText, const string &message, vector<char> &meaning0, vector<char> &meaning1)
+void encryptMessageBekon(string &encryptText, const string &message, vector<char> &meaning0, vector<char> &meaning1)
 {
     string binText = "";
 
     for (auto simbol : message)
     {
-        string binChar = charToBinary(simbol);
+        string binChar = charToBinaryBekon(simbol);
 
         binText += binChar + " ";
 
-        string encryptChar = encryptSimbol(binChar, meaning0, meaning1);
+        string encryptChar = encryptSimbolBekon(binChar, meaning0, meaning1);
 
         encryptText += encryptChar;
     }
 
-    writeToFile(binText, "binEncrypted.txt");
+    writeToFile(binText, "binEncryptedBekon.txt");
 }
 
-string decryptSimbol(string enWord, vector<char> &meaning0, vector<char> &meaning1)
+string decryptSimbolBekon(string enWord, vector<char> &meaning0, vector<char> &meaning1)
 {
     string decryptChar = "";
     for (auto simbol : enWord)
@@ -133,14 +133,14 @@ string decryptSimbol(string enWord, vector<char> &meaning0, vector<char> &meanin
     return decryptChar;
 }
 
-void decryptMessage(string &decryptText, const string &encryptText, vector<char> &meaning0, vector<char> &meaning1)
+void decryptMessageBekon(string &decryptText, const string &encryptText, vector<char> &meaning0, vector<char> &meaning1)
 {
     // Итерируем по входной строке с шагом 8 (длина одного символа)
     for (size_t i = 0; i < encryptText.length(); i += 8)
     {
         string wordLen8 = encryptText.substr(i, 8);
-        string binWord = decryptSimbol(wordLen8, meaning0, meaning1);
+        string binWord = decryptSimbolBekon(wordLen8, meaning0, meaning1);
 
-        decryptText += binaryToChar(binWord);
+        decryptText += binaryToCharBekon(binWord);
     }
 }

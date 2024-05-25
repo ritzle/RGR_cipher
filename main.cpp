@@ -23,7 +23,7 @@ int main()
     {
         cout << ": ";
         getline(cin, message);
-        writeToFile(message, "inputConsoleMessage.txt");
+        writeToFile(message, "inputConsoleMessageBekon.txt");
     }
     else if (inputSelection == "file")
     {
@@ -39,19 +39,19 @@ int main()
     cin.clear();
     cin.sync();
 
-    map<char, int> tableKey = generateRandomTableKey();
+    map<char, int> tableKey = generateRandomTableKeyBekon();
 
     vector<char> meaning0;
     vector<char> meaning1;
 
-    distributionByValue(meaning0, meaning1, tableKey);
+    distributionByValueBekon(meaning0, meaning1, tableKey);
 
     string encryptedMessage = "";
-    encryptMessage(encryptedMessage, message, meaning0, meaning1);
-    writeToFile(encryptedMessage, "encryptedMessage.txt");
+    encryptMessageBekon(encryptedMessage, message, meaning0, meaning1);
+    writeToFile(encryptedMessage, "encryptedMessageBekon.txt");
 
     string decryptedMessage = "";
-    decryptMessage(decryptedMessage, encryptedMessage, meaning0, meaning1);
-    writeToFile(decryptedMessage, "decryptedMessage.txt");
+    decryptMessageBekon(decryptedMessage, encryptedMessage, meaning0, meaning1);
+    writeToFile(decryptedMessage, "decryptedMessageBekon.txt");
     return 0;
 }
