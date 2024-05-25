@@ -38,18 +38,19 @@ map<char, int> generateRandomTableKeyBekon()
         charMap[static_cast<char>(c)] = rand() % 2; // Генерация случайного значения 0 или 1
     }
 
+    string key = "";
+
     ofstream file("tableKeyBekon.txt", std::ios::out);
     if (!file.is_open())
     {
         throw std::runtime_error("Не удалось открыть файл 'tableKeyBekon.txt'");
     }
 
-    for (const auto &pair : charMap)
+    for (auto pair : charMap)
     {
         std::string binaryString = charToBinaryBekon(pair.first);
         file << pair.first << "\t" << binaryString << "\t" << pair.second << "\n";
     }
-
     file.close();
     return charMap;
 }
@@ -143,4 +144,45 @@ void decryptMessageBekon(string &decryptText, const string &encryptText, vector<
 
         decryptText += binaryToCharBekon(binWord);
     }
+}
+
+void readTableKey(map<char, int> &tableKey, const string &filename)
+{
+    ifstream file(filename);
+    if (!file.is_open())
+    {
+        cout << "Не удалось открыть файл " << filename << endl;
+        return;
+    }
+
+    string line;
+    while (getline(file, line))
+    {
+        size_t pos = line.find(" ");
+        if (pos != string::npos)
+        {
+            char c = static_cast<char>(stoi(line.substr(0, pos)));
+            int value = stoi(line.substr(pos + 1));
+            tableKey[c] = value;
+        }
+    }
+
+    file.close();
+}
+
+void writeTableKeyToFile(const map<char, int> &tableKey, const string &filename)
+{
+    ofstream file(filename);
+    if (!file.is_open())
+    {
+        cout << "Не удалось открыть файл " << filename << endl;
+        return;
+    }
+
+    for (auto pair : tableKey)
+    {
+        file << to_string(pair.first) << " " << to_string(pair.second) << "\n";
+    }
+
+    file.close();
 }
