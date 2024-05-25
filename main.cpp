@@ -1,23 +1,26 @@
-#include <iostream>
-#include <string>
+#include "ciphers.h"
 
-using namespace std;
+#include "functionAfin.h"
 
 int main()
 {
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
     string cipherType;
 
     while (true)
     {
-        cout << "Введите название шифра (Афинные, Вернам, Бэкона, RSA, Скитала) или 'exit' для выхода: ";
+        cout << "Введите название шифра (Affine, Вернам, Бэкона, RSA, Скитала) или 'exit' для выхода: ";
         getline(cin, cipherType);
 
         if (cipherType == "exit")
         {
             break;
         }
-        else if (cipherType == "Афинные")
+        else if (cipherType == "Affine")
         {
+            Afin();
+            cout << "the result was successfully recorded\n";
         }
         else if (cipherType == "Вернам")
         {
