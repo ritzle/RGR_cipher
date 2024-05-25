@@ -132,3 +132,28 @@ void RandomParametersAfin(int &a, int &b, int &module) // рандомные п�
     a = coprimeNumbersWithM[rand() % coprimeNumbersWithM.size()];
     b = 2 + rand() % 255;
 }
+
+bool checkAffineCipherParams(int a, int module)
+{
+    // Проверяем, что a и module являются взаимно простыми числами
+    if (!NOD(a, module))
+    {
+        cout << "a must be coprime to module";
+        return false;
+    }
+    return true;
+}
+
+void readKeyDecrypt(int &a, int &b, int &module, const std::string &filename)
+{
+    string text = "";
+    readingFile(text, filename);
+
+    std::istringstream iss(text);
+    iss >> a >> b >> module;
+
+    if (iss.fail())
+    {
+        throw std::runtime_error("Ошибка при чтении параметров из файла: " + filename);
+    }
+}

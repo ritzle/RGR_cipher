@@ -30,6 +30,10 @@ void writeToFile(const string &text, const string &filename);
 void encryptMessageAfin(string &encryptText, const string &message, int a, int b, int module);
 void decryptMessageAfin(string &decryptText, const string &encryptText, int a, int b, int module);
 
+bool checkAffineCipherParams(int a, int module);
+
+void readKeyDecrypt(int &a, int &b, int &module, const std::string &filename);
+
 /*
 Стандартные ASCII-символы (от 0 до 127):
 
