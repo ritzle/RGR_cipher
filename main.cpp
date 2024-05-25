@@ -23,7 +23,7 @@ int main()
     {
         cout << ": ";
         getline(cin, message);
-        writeToFile(message, "inputConsoleMessageBekon.txt");
+        writeToFile(message, "inputConsoleMessage.txt");
     }
     else if (inputSelection == "file")
     {
