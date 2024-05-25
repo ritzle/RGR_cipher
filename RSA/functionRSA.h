@@ -1,4 +1,4 @@
-#ifdef FUNCTIONRSA_H
+#ifndef FUNCTIONRSA_H
 #define FUNCTIONRSA_H
 
 #include <iostream>
