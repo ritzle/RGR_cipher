@@ -48,10 +48,10 @@ int main()
 
     string encryptedMessage = "";
     encryptMessageBekon(encryptedMessage, message, meaning0, meaning1);
-    writeToFile(encryptedMessage, "encryptedMessageBekon.txt");
+    writeToFile(encryptedMessage, "encryptedMessage.txt");
 
     string decryptedMessage = "";
     decryptMessageBekon(decryptedMessage, encryptedMessage, meaning0, meaning1);
-    writeToFile(decryptedMessage, "decryptedMessageBekon.txt");
+    writeToFile(decryptedMessage, "decryptedMessage.txt");
     return 0;
 }
