@@ -144,7 +144,7 @@ bool checkAffineCipherParams(int a, int module)
     return true;
 }
 
-void readKeyDecrypt(int &a, int &b, int &module, const std::string &filename)
+void readKeyDecryptAfin(int &a, int &b, int &module, const std::string &filename)
 {
     string text = "";
     readingFile(text, filename);

@@ -32,7 +32,7 @@ void decryptMessageAfin(string &decryptText, const string &encryptText, int a, i
 
 bool checkAffineCipherParams(int a, int module);
 
-void readKeyDecrypt(int &a, int &b, int &module, const std::string &filename);
+void readKeyDecryptAfin(int &a, int &b, int &module, const std::string &filename);
 
 /*
 Стандартные ASCII-символы (от 0 до 127):

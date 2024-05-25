@@ -120,7 +120,7 @@ enterAgain2: // проверка на правильность ввода пар
     }
     else if (inputSelection == "file")
     {
-        readKeyDecrypt(decA, decB, decModule, "keyDecrypt");
+        readKeyDecryptAfin(decA, decB, decModule, "keyDecrypt");
     }
     else
     {
