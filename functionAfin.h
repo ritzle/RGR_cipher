@@ -15,22 +15,22 @@ using namespace std;
 
 bool NOD(int a, int b);
 
-string InputText();
+string InputTextAfin();
 
-char Encrypt_simbol(char simbol, int a, int b, int module);
+char Encrypt_simbolAfin(char simbol, int a, int b, int module);
 
 // Функция для нахождения обратного элемента
 int extendedEuclideanAlgorithm(int number, int module, int &x, int &y);
 
 int findInverseElement(int number, int module);
 
-char Decryption_simbol(char simbol, int a, int b, int module);
+char Decryption_simbolAfin(char simbol, int a, int b, int module);
 
-void RandomParameters(int &a, int &b, int &module);
+void RandomParametersAfin(int &a, int &b, int &module);
 
-void decryptTheMessage(int a, int b, int module);
+void decryptTheMessageAfin(int a, int b, int module);
 
-void encryptTheMessage(int a, int b, int module);
+void encryptTheMessageAfin(int a, int b, int module);
 
 /*
 Стандартные ASCII-символы (от 0 до 127):

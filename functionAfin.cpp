@@ -19,14 +19,14 @@ bool NOD(int a, int b) // находит наибольший общий дел�
     }
 }
 
-string InputText()
+string InputTextAfin()
 {
     string firstText = "";
     getline(cin, firstText);
     return firstText;
 }
 
-char Encrypt_simbol(char simbol, int a, int b, int module)
+char Encrypt_simbolAfin(char simbol, int a, int b, int module)
 {
     char encryptSimbol;
 
@@ -66,7 +66,7 @@ int findInverseElement(int number, int module)
     }
 }
 
-char Decryption_simbol(char simbol, int a, int b, int module)
+char Decryption_simbolAfin(char simbol, int a, int b, int module)
 {
     char openSimbol;
 
@@ -77,7 +77,7 @@ char Decryption_simbol(char simbol, int a, int b, int module)
     return openSimbol;
 }
 
-void RandomParameters(int &a, int &b, int &module) // рандомные параметры для а и b
+void RandomParametersAfin(int &a, int &b, int &module) // рандомные параметры для а и b
 {
     module = 256; // ну тут нечего не поделать
 
@@ -97,11 +97,11 @@ void RandomParameters(int &a, int &b, int &module) // рандомные пар�
     b = 2 + rand() % 255;
 }
 
-void decryptTheMessage(int a, int b, int module)
+void decryptTheMessageAfin(int a, int b, int module)
 {
 
-    ifstream fileEncrypted("encryptedMessage.txt");                  // Открываем файл для чтения
-    ofstream fileDecrypted("decryptedMessage.txt", std::ios::trunc); // Открываем файл для записи
+    ifstream fileEncrypted("encryptedMessageAfin.txt");                  // Открываем файл для чтения
+    ofstream fileDecrypted("decryptedMessageAfin.txt", std::ios::trunc); // Открываем файл для записи
 
     // Проверяем, удалось ли открыть файл
     if (fileEncrypted.is_open())
@@ -114,7 +114,7 @@ void decryptTheMessage(int a, int b, int module)
 
             if (fileDecrypted.is_open())
             {                                                        // Проверяем, удалось ли открыть файл
-                fileDecrypted << Decryption_simbol(c, a, b, module); // Записываем элементы массива в файл
+                fileDecrypted << Decryption_simbolAfin(c, a, b, module); // Записываем элементы массива в файл
             }
             else
             {
@@ -130,10 +130,10 @@ void decryptTheMessage(int a, int b, int module)
     }
 }
 
-void encryptTheMessage(int a, int b, int module)
+void encryptTheMessageAfin(int a, int b, int module)
 {
-    std::ifstream fileMessage("messages.txt");                            // Открываем файл для чтения
-    std::ofstream fileEncrypted("encryptedMessage.txt", std::ios::trunc); // Открываем файл для записи
+    std::ifstream fileMessage("openText.txt");                            // Открываем файл для чтения
+    std::ofstream fileEncrypted("encryptedMessageAfin.txt", std::ios::trunc); // Открываем файл для записи
     if (fileMessage.is_open())
     { // Проверяем, удалось ли открыть файл
         string message;
@@ -147,7 +147,7 @@ void encryptTheMessage(int a, int b, int module)
                 char c;
                 while (fileMessage.get(c))
                 {
-                    fileEncrypted << Encrypt_simbol(c, a, b, module);
+                    fileEncrypted << Encrypt_simbolAfin(c, a, b, module);
                 }
 
                 //  std::cout << "Массив успешно записан в файл." << std::endl;
