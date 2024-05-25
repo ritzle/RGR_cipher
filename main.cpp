@@ -27,7 +27,7 @@ int main()
     }
     else if (inputSelection == "file")
     {
-        readingFile(message, "messages.txt");
+        readingFile(message, "openText.txt");
     }
     else
     {
