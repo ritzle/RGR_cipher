@@ -16,25 +16,6 @@ void decryptMessageAfin(string &decryptText, const string &encryptText, int a, i
     }
 }
 
-bool NOD(int a, int b) // находит наибольший общий делитель
-{
-    while (b != 0)
-    {
-        int t = b;
-        b = a % b;
-        a = t;
-    }
-    if (a == 1)
-    {
-        return true;
-    }
-
-    else
-    {
-        return false;
-    }
-}
-
 char encryptSimbolAfin(char simbol, int a, int b, int module)
 {
     char encryptSimbol;
@@ -42,37 +23,6 @@ char encryptSimbolAfin(char simbol, int a, int b, int module)
     encryptSimbol = static_cast<char>((a * static_cast<int>(simbol) + b) % module);
 
     return encryptSimbol;
-}
-
-// Функция для нахождения обратного элемента
-int extendedEuclideanAlgorithm(int number, int module, int &x, int &y)
-{
-    if (module == 0)
-    {
-        x = 1;
-        y = 0;
-        return number;
-    }
-    int x1 = 0, y1 = 0;
-    int NOD = extendedEuclideanAlgorithm(module, number % module, x1, y1); // в реккуретной форме переставляем число и модуль местами
-    x = y1;
-    y = x1 - (number / module) * y1;
-    return NOD;
-}
-
-int findInverseElement(int number, int module)
-{
-    int x = 0, y = 0;
-    int NOD = extendedEuclideanAlgorithm(number, module, x, y);
-    if (NOD != 1)
-    {
-        cout << "Обратного элемента не существует";
-        return 0;
-    }
-    else
-    {
-        return (x % module + module) % module; // обработка отрицательных значений
-    }
 }
 
 char decryptionSimbolAfin(char simbol, int a, int b, int module)

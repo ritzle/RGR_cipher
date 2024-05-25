@@ -17,17 +17,12 @@
 #include <cstdlib>
 
 #include "readANDwrite.h"
+#include "mathFunctions.h"
 
 using namespace std;
 
-bool NOD(int a, int b);
-
 char encryptSimbolAfin(char simbol, int a, int b, int module);
 char decryptionSimbolAfin(char simbol, int a, int b, int module);
-
-// Функция для нахождения обратного элемента
-int extendedEuclideanAlgorithm(int number, int module, int &x, int &y);
-int findInverseElement(int number, int module);
 
 void RandomParametersAfin(int &a, int &b, int &module);
 

@@ -36,6 +36,8 @@ int main()
         }
         else if (cipherType == "RSA")
         {
+            RSA();
+            cout << "the result was successfully recorded\n";
         }
         else if (cipherType == "Скитала")
         {
