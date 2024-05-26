@@ -1,4 +1,4 @@
-#include "Skitala.h"
+#include "functionSkitala.h"
 
 
 void encodeScytaleFile()

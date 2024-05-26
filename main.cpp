@@ -3,6 +3,7 @@
 
 #include "functionAfin.h"
 #include "functionVernam.h"
+#include "functionSkitala.h"
 
 int main()
 {
@@ -39,8 +40,10 @@ int main()
             RSA();
             cout << "the result was successfully recorded\n";
         }
-        else if (cipherType == "Скитала")
+        else if (cipherType == "Skitala")
         {
+            Skitala();
+            cout << "the result was successfully recorded\n";
         }
         else
         {
