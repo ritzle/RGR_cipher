@@ -9,8 +9,11 @@ void EncryptedTextFileRSA()
 
     int openExponent = 0, n = 0;
 
-    cout << "Введите открытый ключ для шифрования" << endl;
+    cout << "Enter the public encryption key" << endl;
     cin >> openExponent >> n;
+
+    writeToFile(to_string(openExponent), "../txtFile/keyEncrypt.txt");
+    
 
     ifstream openText("../txtFile/openText.txt");
     ofstream encryptText("../txtFile/encryptedMessage.txt");
@@ -43,7 +46,7 @@ void EncryptedTextFileRSA()
     {
         std::cerr << "Unable to open file" << std::endl; // Выводим сообщение об ошибке, если файл не удалось открыть
     }
-    cout << "Зашифрованный текст записан в файл (encryptedMessage.txt) " << endl;
+    cout << "The encrypted text is written to a file (encryptedMessage.txt) " << endl;
 }
 
 void EncryptTextFromTheConsoleRSA()
@@ -52,12 +55,15 @@ void EncryptTextFromTheConsoleRSA()
 
     string openText = "";
 
-    cout << "Введите текст для шифрования" << endl;
+    cout << "Enter text to encrypt" << endl;
     cin.ignore(); // Очистка буфера ввода
     getline(cin, openText);
 
-    cout << "Введите открытый ключ для шифровки" << endl;
+    cout << "Enter the public encryption key" << endl;
     cin >> openExponent >> n;
+
+    writeToFile(to_string(openExponent), "../txtFile/keyEncrypt.txt");
+   
 
     for (auto &i : openText)
     {
@@ -66,7 +72,7 @@ void EncryptTextFromTheConsoleRSA()
         encryptedTextFromTheConsoleVector.push_back(encryptSymbol);
     }
 
-    cout << "Зашифрованный текст" << endl;
+    cout << "Encrypted text" << endl;
 
     for (auto i : encryptedTextFromTheConsoleVector)
     {
@@ -80,8 +86,11 @@ void decryptedTextFromTheConsoleRSA()
 
     vector<char> decryptTextFromTheConsoleRSA;
 
-    cout << "Введите закрытый ключ" << endl;
+    cout << "Enter secret key" << endl;
     cin >> inverseForOpenExponent >> n;
+
+    writeToFile(to_string(inverseForOpenExponent), "../txtFile/keyDecrypt.txt");
+    
 
     for (auto &i : encryptedTextFromTheConsoleVector)
     {
@@ -90,7 +99,7 @@ void decryptedTextFromTheConsoleRSA()
 
         decryptTextFromTheConsoleRSA.push_back(decryptSymbol);
     }
-    cout << "Расшифрованный текст" << endl;
+    cout << "Decrypted text" << endl;
 
     for (auto &i : decryptTextFromTheConsoleRSA)
     {
@@ -105,8 +114,12 @@ void DecryptedTextFileRSA()
 
     int inverseForOpenExponent = 0, n = 0;
 
-    cout << "Введите закрытый ключ" << endl;
+    cout << "Enter secret key" << endl;
     cin >> inverseForOpenExponent >> n;
+
+    writeToFile(to_string(inverseForOpenExponent), "../txtFile/keyDecrypt.txt");
+    
+ 
 
     ofstream decryptText("../txtFile/decryptedMessage.txt");
 
@@ -128,7 +141,7 @@ void DecryptedTextFileRSA()
     {
         std::cerr << "Unable to open file" << std::endl; // Выводим сообщение об ошибке, если файл не удалось открыть
     }
-    cout << "Расшифрованный текст записан в файл (decryptedMessage.txt) " << endl;
+    cout << "The decrypted text is written to a file (decryptedMessage.txt) " << endl;
 }
 void Eratosthenes(vector<int> &vector_Prime_Nums)
 { // решето Эратосфена 2- 1000 диапазон

@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\source\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\source\ciphers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\source\functionAfin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\source\functionBekon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\source\functionRSA.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\source\functionSkitala.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\source\functionVernam.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\source\mathFunctions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\source\readANDwrite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\headers\ciphers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\headers\functionAfin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\headers\functionBekon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\headers\functionRSA.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\headers\functionSkitala.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\headers\functionVernam.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\headers\mathFunctions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\headers\readANDwrite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\txtFile\binEncryptedBekon.txt" />
+    <None Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\txtFile\decryptedMessage.txt" />
+    <None Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\txtFile\encryptedMessage.txt" />
+    <None Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\txtFile\inputConsoleMessage.txt" />
+    <None Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\txtFile\keyDecrypt.txt" />
+    <None Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\txtFile\keyEncrypt.txt" />
+    <None Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\txtFile\myKey.txt" />
+    <None Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\txtFile\openText.txt" />
+    <None Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\txtFile\tableKeyBekon.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{A4EBC805-C713-3723-9576-8BCB340C0392}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{CAC4A88F-6A4F-30ED-AF76-65AFF3E93575}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

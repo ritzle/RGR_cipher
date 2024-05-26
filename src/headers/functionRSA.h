@@ -12,6 +12,7 @@
 #include <sstream>
 
 #include "mathFunctions.h"
+#include "readANDwrite.h"
 
 using namespace std;
 

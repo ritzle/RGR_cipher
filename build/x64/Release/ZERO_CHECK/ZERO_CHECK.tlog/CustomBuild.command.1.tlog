@@ -1,0 +1,10 @@
+^C:\USERS\PUSHK\DESKTOP\ПРОГРАММИРОВАНИЕ\ПРАКТИКА\RGR_CIPHER\BUILD\CMAKEFILES\BA3804E303415C282C7E119EAB1D0B61\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/pushk/Desktop/Программирование/Практика/RGR_cipher -BC:/Users/pushk/Desktop/Программирование/Практика/RGR_cipher/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/pushk/Desktop/Программирование/Практика/RGR_cipher/build/RGRCiphers.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

@@ -13,10 +13,10 @@ void encodeScytaleFile()
 
 	while (diameter < 2 || diameter > openText.length() - 5)
 	{
-		cout << "Введите ключ в диапозоне от 2 до " << openText.length() - 4 << "\n<<<";
+		cout << "Enter a key in the range from 2 to " << openText.length() - 4 << "\n<<<";
 		cin >> diameter;
 		if (diameter < 2 || diameter > openText.length() - 5)
-			cout << "Ключ выходит за границы. Повторите ввод" << endl;
+			cout << "The key is out of bounds. Re-enter" << endl;
 	}
 
 	writeToFile(to_string(diameter), "../txtFile/keyEncrypt.txt");
@@ -69,7 +69,7 @@ void decodeScytaleFile()
 
 	length = encodedMessage.length();
 
-	cout << "Введите закрытый ключ для дешифрования\n<<<";
+	cout << "Enter the private key for decryption\n<<<";
 	cin >> diameter;
 
 	int height = (length + diameter - 1) / diameter;
@@ -115,10 +115,10 @@ string encodeScytaleConsole(string message)
 
 	while (diameter < 2 || diameter > message.length() - 5)
 	{
-		cout << "Введите ключ в диапозоне от 2 до " << message.length() - 4 << "\n<<<";
+		cout << "Enter a key in the range from 2 to " << message.length() - 4 << "\n<<<";
 		cin >> diameter;
 		if (diameter < 2 || diameter > message.length() - 5)
-			cout << "Ключ выходит за границы. Повторите ввод" << endl;
+			cout << "The key is out of bounds. Re-enter" << endl;
 	}
 
 	writeToFile(to_string(diameter), "../txtFile/keyEncrypt.txt");
@@ -164,7 +164,7 @@ string decodeScytaleConsole(string encodedMessage)
 {
 
 	int length = encodedMessage.length(), diameter = 0;
-	cout << "Введите закрытый ключ для дешифрования\n<<<";
+	cout << "Enter the private key for decryption\n<<<";
 	cin >> diameter;
 
 	int height = (length + diameter - 1) / diameter;

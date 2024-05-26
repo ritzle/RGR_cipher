@@ -420,7 +420,7 @@ void RSA()
 
     while (true)
     {
-        cout << "Выберите опцию:\n 1 - генерация рандомных ключей, 2 - шифрование с файла, 3 - дешифрование с файла,\n 4 - шифрование с консоли, 5 - дешифрование с консоли, E - выход\n\n<<<";
+        cout << "Select option:\n 1 - generation random keys, 2 - ecryption from file, 3 - decryption from file,\n 4 - ecryption from console, 5 - decryption from console, E - exit\n\n<<<";
         cin >> s;
         switch (s)
         {
@@ -452,7 +452,7 @@ void RSA()
         case ('E'):
             return;
         default:
-            cout << "Неизвестная команда. Повторите ввод\n"
+            cout << "Unknown command. re-enter\n"
                  << endl;
         }
     }
@@ -469,13 +469,13 @@ void Skitala()
     
     string message;
 
-    cout << "Шифр Скитала" << endl;
+    cout << "Cipher Skitala" << endl;
 
     char s;
 
     while (true)
     {
-        cout << "Выберите опцию:\n1 - шифрование с файла, 2 - дешифрование с файла,\n 3 - шифрование с консоли, 4 - дешифрование с консоли, E - выход\n\n<<<";
+        cout << "Select option:\n1 - ecryption from file, 2 - decryption from file,\n 3 - ecryption from console, 4 - decryption from console, E - exit\n\n<<<";
         cin >> s;
         switch (s)
         {
@@ -491,7 +491,7 @@ void Skitala()
             break;
         case('3'):
             cout << endl;
-            cout << "Введите сообщение для шифрования\n<<<";
+            cout << "enter text to encrypt\n<<<";
             cin.ignore(); // Очистка буфера ввода
             getline(cin, message);
             message = encodeScytaleConsole(message);
@@ -506,7 +506,7 @@ void Skitala()
         case('E'):
             return;
         default:
-            cout << "Неизвестная команда. Повторите ввод\n" << endl;
+            cout << "Unknown command. re-enter\n" << endl;
         }
 
     }

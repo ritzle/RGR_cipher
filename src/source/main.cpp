@@ -4,11 +4,12 @@ int main()
 {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
+
     string cipherType;
 
     while (true)
     {
-        cout << "Enter the name of the cipher (Affine, Vernam, Bacon, RSA, Skitala) or 'exit' to output:";
+        cout << "Enter the name of the cipher (Affine, Vernam, Bacon, RSA, Skitala) or 'exit' to output:\n<<<";
         getline(cin, cipherType);
 
         if (cipherType == "exit")
@@ -42,7 +43,7 @@ int main()
         }
         else
         {
-            cout << "Неизвестный шифр. Попробуйте еще раз." << endl;
+            cout << "Unknown cipher. Re-enter" << endl;
         }
     }
 
