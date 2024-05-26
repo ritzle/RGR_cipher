@@ -5,6 +5,7 @@ void encodeScytaleFile()
 {
 
 	int length = 0, diameter = 0;
+    
 	string openText;
 
 	readingFile(openText, "openText.txt");

@@ -25,5 +25,4 @@ void decodeScytaleFile();
 void writeToFile(const string& text, const string& filename);
 
 void readingFile(string& text, const string& filename);
-
 #endif
