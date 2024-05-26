@@ -11,6 +11,7 @@ int main()
 
     while (true)
     {
+        cin.ignore();
         cout << "Enter the name of the cipher (Affine, Vernam, Bacon, RSA, Skitala) or 'exit' to output:\n<<<";
         getline(cin, cipherType);
 
