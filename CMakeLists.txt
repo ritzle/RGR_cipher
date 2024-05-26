@@ -21,7 +21,18 @@ set(HEADERS_LIST
     src/headers/mathFunctions.h
     src/headers/readANDwrite.h)
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_SOURCE_DIR}/Release)
+set(TEXT_FILE_LIST
+    src/txtFile/binEncryptedBekon.txt
+    src/txtFile/decryptedMessage.txt
+    src/txtFile/encryptedMessage.txt
+    src/txtFile/inputConsoleMessage.txt
+    src/txtFile/keyDecrypt.txt
+    src/txtFile/keyEncrypt.txt
+    src/txtFile/myKey.txt
+    src/txtFile/openText.txt
+    src/txtFile/tableKeyBekon.txt)
 
-add_executable(RGRCiphersExe ${SOURCE_LIST} ${HEADERS_LIST})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_SOURCE_DIR}/src/Release)
+
+add_executable(RGRCiphersExe ${SOURCE_LIST} ${HEADERS_LIST} ${TEXT_FILE_LIST})

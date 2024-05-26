@@ -29,7 +29,7 @@ MetkaIntputText:
         }
         else if (inputSelection == "file")
         {
-            readingFile(message, "../txtFile//openText.txt");
+            readingFile(message, "../txtFile/openText.txt");
             break;
         }
         else
