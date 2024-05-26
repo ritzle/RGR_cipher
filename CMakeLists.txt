@@ -32,7 +32,8 @@ set(TEXT_FILE_LIST
     src/txtFile/keyEncrypt.txt
     src/txtFile/myKey.txt
     src/txtFile/openText.txt
-    src/txtFile/tableKeyBekon.txt)
+    src/txtFile/tableKeyBekon.txt
+    src/txtFile/systemPassword.txt)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_SOURCE_DIR}/src/Release)

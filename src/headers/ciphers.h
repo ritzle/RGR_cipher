@@ -7,6 +7,8 @@
 #include "functionRSA.h"
 #include "functionSkitala.h"
 
+
+void isValidSystemPassword();
 void Affin();
 void Vernam();
 void Bacon();

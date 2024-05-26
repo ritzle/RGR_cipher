@@ -68,6 +68,7 @@
     <None Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\txtFile\myKey.txt" />
     <None Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\txtFile\openText.txt" />
     <None Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\txtFile\tableKeyBekon.txt" />
+    <None Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\txtFile\systemPassword.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">

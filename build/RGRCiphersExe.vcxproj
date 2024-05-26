@@ -336,6 +336,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </None>
     <None Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\txtFile\tableKeyBekon.txt">
     </None>
+    <None Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\src\txtFile\systemPassword.txt">
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\pushk\Desktop\Программирование\Практика\RGR_cipher\build\ZERO_CHECK.vcxproj">

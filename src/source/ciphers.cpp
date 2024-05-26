@@ -513,3 +513,22 @@ void Skitala()
 
 
 }
+
+
+
+void isValidSystemPassword()
+{
+    string systemPassword, userPassword;
+    readingFile(systemPassword, "../txtFile/systemPassword.txt");
+
+    while(userPassword != systemPassword)
+    {
+        cout<<"Enter password\n<<<";
+        cin >> userPassword;
+        if(userPassword != systemPassword)
+        {
+            cout<<"Ooo-ooops.... This is the wrong password. Re-enter"<<endl;
+        }
+
+    }
+}
