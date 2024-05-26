@@ -1,4 +1,4 @@
-#include "mathFunctions.h"
+#include "../headers/mathFunctions.h"
 
 int extendedEuclideanAlgorithm(int number, int module, int &x, int &y)
 {

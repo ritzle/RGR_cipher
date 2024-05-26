@@ -1,5 +1,5 @@
-#ifndef FUNCTIONRSA_H
-#define FUNCTIONRSA_H
+#ifndef FUNCTIONSkitala_H
+#define FUNCTIONSkitala_H
 
 #include <iostream>
 #include <random>
@@ -11,18 +11,16 @@
 #include <string>
 #include <sstream>
 
-using namespace std;
+#include "readANDwrite.h"
 
+using namespace std;
 
 string encodeScytaleConsole(string message);
 
-string decodeScytaleConsole(string encodedMessage); 
+string decodeScytaleConsole(string encodedMessage);
 
 void encodeScytaleFile();
 
 void decodeScytaleFile();
 
-void writeToFile(const string& text, const string& filename);
-
-void readingFile(string& text, const string& filename);
 #endif

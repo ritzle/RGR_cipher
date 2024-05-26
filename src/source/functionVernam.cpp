@@ -1,4 +1,4 @@
-#include "functionVernam.h"
+#include "../headers/functionVernam.h"
 
 int xorS(char a, char b)
 {

@@ -1,9 +1,4 @@
-#include "ciphers.h"
-#include "functionBekon.h"
-
-#include "functionAfin.h"
-#include "functionVernam.h"
-#include "functionSkitala.h"
+#include "../headers/ciphers.h"
 
 int main()
 {
@@ -13,7 +8,7 @@ int main()
 
     while (true)
     {
-        cout << "Введите название шифра (Affine, Vernam, Bacon, RSA, Скитала) или 'exit' для выхода: ";
+        cout << "Enter the name of the cipher (Affine, Vernam, Bacon, RSA, Skitala) or 'exit' to output:";
         getline(cin, cipherType);
 
         if (cipherType == "exit")

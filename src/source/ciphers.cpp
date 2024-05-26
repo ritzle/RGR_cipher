@@ -1,4 +1,4 @@
-#include "ciphers.h"
+#include "../headers/ciphers.h"
 
 void Affin()
 {
@@ -24,12 +24,12 @@ MetkaIntputText:
         {
             cout << "Input message\n:";
             getline(cin, message);
-            writeToFile(message, "inputConsoleMessage.txt");
+            writeToFile(message, "../txtFile/inputConsoleMessage.txt");
             break;
         }
         else if (inputSelection == "file")
         {
-            readingFile(message, "openText.txt");
+            readingFile(message, "../txtFile/openText.txt");
             break;
         }
         else
@@ -71,8 +71,8 @@ MetkaIntputParametrsEncryption:
             if (checkAffineCipherParams(a, module))
             {
                 key = to_string(a) + " " + to_string(b) + " " + to_string(module);
-                writeToFile(key, "keyEncrypt.txt");
-                writeToFile(key, "keyDecrypt.txt");
+                writeToFile(key, "../txtFile/keyEncrypt.txt");
+                writeToFile(key, "../txtFile/keyDecrypt.txt");
                 break;
             }
             else
@@ -85,8 +85,8 @@ MetkaIntputParametrsEncryption:
         {
             RandomParametersAfin(a, b, module);
             key = to_string(a) + " " + to_string(b) + " " + to_string(module);
-            writeToFile(key, "keyEncrypt.txt");
-            writeToFile(key, "keyDecrypt.txt");
+            writeToFile(key, "../txtFile/keyEncrypt.txt");
+            writeToFile(key, "../txtFile/keyDecrypt.txt");
             break;
         }
         else
@@ -100,7 +100,7 @@ MetkaIntputParametrsEncryption:
     // шифруем текст
     string encryptedMessage = "";
     encryptMessageAfin(encryptedMessage, message, a, b, module);
-    writeToFile(encryptedMessage, "encryptedMessage.txt");
+    writeToFile(encryptedMessage, "../txtFile/encryptedMessage.txt");
 
     // расшифровываем текст
 
@@ -133,7 +133,7 @@ MetkaIntputParametrsDecryption:
             if (checkAffineCipherParams(decA, decModule))
             {
                 decKey = to_string(decA) + " " + to_string(decB) + " " + to_string(decModule);
-                writeToFile(decKey, "keyDecrypt.txt");
+                writeToFile(decKey, "../txtFile/keyDecrypt.txt");
                 break;
             }
             else
@@ -144,7 +144,7 @@ MetkaIntputParametrsDecryption:
         }
         else if (inputSelection == "file")
         {
-            readKeyDecryptAfin(decA, decB, decModule, "keyDecrypt.txt");
+            readKeyDecryptAfin(decA, decB, decModule, "../txtFile/keyDecrypt.txt");
             break;
         }
         else
@@ -156,7 +156,7 @@ MetkaIntputParametrsDecryption:
 
     string decryptedMessage = "";
     decryptMessageAfin(decryptedMessage, encryptedMessage, decA, decB, decModule);
-    writeToFile(decryptedMessage, "decryptedMessage.txt");
+    writeToFile(decryptedMessage, "../txtFile/decryptedMessage.txt");
 }
 
 void Vernam()
@@ -181,12 +181,12 @@ MetkaIntputText:
         {
             cout << ": ";
             getline(cin, message);
-            writeToFile(message, "inputConsoleMessage.txt");
+            writeToFile(message, "../txtFile/inputConsoleMessage.txt");
             break;
         }
         else if (inputSelection == "file")
         {
-            readingFile(message, "openText.txt");
+            readingFile(message, "../txtFile/openText.txt");
             break;
         }
         else
@@ -213,8 +213,8 @@ MetkaIntputKeyEncrypted:
             cin.sync();
             cout << ": ";
             getline(cin, key);
-            writeToFile(key, "keyEncrypt.txt");
-            writeToFile(key, "keyDecrypt.txt");
+            writeToFile(key, "../txtFile/keyEncrypt.txt");
+            writeToFile(key, "../txtFile/keyDecrypt.txt");
             break;
         }
         else if (inputSelection == "random")
@@ -222,8 +222,8 @@ MetkaIntputKeyEncrypted:
             cin.clear();
             cin.sync();
             key = generateKeyVernam(message);
-            writeToFile(key, "keyEncrypt.txt");
-            writeToFile(key, "keyDecrypt.txt");
+            writeToFile(key, "../txtFile/keyEncrypt.txt");
+            writeToFile(key, "../txtFile/keyDecrypt.txt");
             break;
         }
         else
@@ -238,7 +238,7 @@ MetkaIntputKeyEncrypted:
 
     string encryptedMessage = "";
     encryptMessageVernam(encryptedMessage, message, key);
-    writeToFile(encryptedMessage, "encryptedMessage.txt");
+    writeToFile(encryptedMessage, "../txtFile/encryptedMessage.txt");
 
     // расшифровка текста
 
@@ -256,12 +256,12 @@ MetkaIntputKeyDecrypted:
         {
             cout << "enter key decrypt\n :";
             cin >> decKey;
-            writeToFile(decKey, "keyDecrypt.txt");
+            writeToFile(decKey, "../txtFile/keyDecrypt.txt");
             break;
         }
         else if (inputSelection == "file")
         {
-            readingFile(decKey, "keyDecrypt.txt");
+            readingFile(decKey, "../txtFile/keyDecrypt.txt");
             break;
         }
         else
@@ -274,7 +274,7 @@ MetkaIntputKeyDecrypted:
 
     string decryptedMessage = "";
     decryptMessageVernam(decryptedMessage, encryptedMessage, decKey);
-    writeToFile(decryptedMessage, "decryptedMessage.txt");
+    writeToFile(decryptedMessage, "../txtFile/decryptedMessage.txt");
 
     cout << endl;
     // cin.get(); //для ожидания
@@ -304,12 +304,12 @@ MetkaIntputText:
         {
             cout << ": ";
             getline(cin, message);
-            writeToFile(message, "inputConsoleMessage.txt");
+            writeToFile(message, "../txtFile/inputConsoleMessage.txt");
             break;
         }
         else if (inputSelection == "file")
         {
-            readingFile(message, "openText.txt");
+            readingFile(message, "../txtFile/openText.txt");
             break;
         }
         else
@@ -340,9 +340,9 @@ MetkaIntputKeyEncrypted:
             cin.clear();
             cin.sync();
 
-            readTableKey(tableKey, "myKey.txt");
-            writeTableKeyToFile(tableKey, "keyEncrypt.txt");
-            writeTableKeyToFile(tableKey, "keyDecrypt.txt");
+            readTableKey(tableKey, "../txtFile/myKey.txt");
+            writeTableKeyToFile(tableKey, "../txtFile/keyEncrypt.txt");
+            writeTableKeyToFile(tableKey, "../txtFile/keyDecrypt.txt");
             distributionByValueBekon(meaningEncrypt0, meaningEncrypt1, tableKey);
 
             break;
@@ -353,8 +353,8 @@ MetkaIntputKeyEncrypted:
             cin.sync();
 
             tableKey = generateRandomTableKeyBekon();
-            writeTableKeyToFile(tableKey, "keyEncrypt.txt");
-            writeTableKeyToFile(tableKey, "keyDecrypt.txt");
+            writeTableKeyToFile(tableKey, "../txtFile/keyEncrypt.txt");
+            writeTableKeyToFile(tableKey, "../txtFile/keyDecrypt.txt");
             distributionByValueBekon(meaningEncrypt0, meaningEncrypt1, tableKey);
             break;
         }
@@ -370,7 +370,7 @@ MetkaIntputKeyEncrypted:
 
     string encryptedMessage = "";
     encryptMessageBekon(encryptedMessage, message, meaningEncrypt0, meaningEncrypt1);
-    writeToFile(encryptedMessage, "encryptedMessage.txt");
+    writeToFile(encryptedMessage, "../txtFile/encryptedMessage.txt");
 
     // расшифровка
     cin.clear();
@@ -390,14 +390,14 @@ MetkaIntputKeyDecrypted:
 
         if (inputSelection == "myFile")
         {
-            readTableKey(tableKeyDecrypt, "myKey.txt");
+            readTableKey(tableKeyDecrypt, "../txtFile/myKey.txt");
             distributionByValueBekon(meaningDecrypt0, meaningDecrypt1, tableKeyDecrypt);
-            writeTableKeyToFile(tableKeyDecrypt, "keyDecrypt.txt");
+            writeTableKeyToFile(tableKeyDecrypt, "../txtFile/keyDecrypt.txt");
             break;
         }
         else if (inputSelection == "keyDecrupt")
         {
-            readTableKey(tableKeyDecrypt, "keyDecrypt.txt");
+            readTableKey(tableKeyDecrypt, "../txtFile/keyDecrypt.txt");
             distributionByValueBekon(meaningDecrypt0, meaningDecrypt1, tableKeyDecrypt);
             break;
         }
@@ -411,7 +411,7 @@ MetkaIntputKeyDecrypted:
 
     string decryptedMessage = "";
     decryptMessageBekon(decryptedMessage, encryptedMessage, meaningDecrypt0, meaningDecrypt1);
-    writeToFile(decryptedMessage, "decryptedMessage.txt");
+    writeToFile(decryptedMessage, "../txtFile/decryptedMessage.txt");
 }
 
 void RSA()

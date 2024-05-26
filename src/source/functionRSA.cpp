@@ -1,4 +1,4 @@
-#include "functionRSA.h"
+#include "../headers/functionRSA.h"
 
 vector<int> vector_Prime_Nums;
 vector<int> encryptTextVector;
@@ -12,8 +12,8 @@ void EncryptedTextFileRSA()
     cout << "Введите открытый ключ для шифрования" << endl;
     cin >> openExponent >> n;
 
-    ifstream openText("openText.txt");
-    ofstream encryptText("encryptedMessage.txt");
+    ifstream openText("../txtFile/openText.txt");
+    ofstream encryptText("../txtFile/encryptedMessage.txt");
 
     if (openText.is_open())
     {
@@ -108,7 +108,7 @@ void DecryptedTextFileRSA()
     cout << "Введите закрытый ключ" << endl;
     cin >> inverseForOpenExponent >> n;
 
-    ofstream decryptText("decryptedMessage.txt");
+    ofstream decryptText("../txtFile/decryptedMessage.txt");
 
     if (decryptText.is_open())
     {

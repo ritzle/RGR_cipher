@@ -1,4 +1,4 @@
-#include "readANDwrite.h"
+#include "../headers/readANDwrite.h"
 
 void readingFile(string &text, const string &filename)
 {

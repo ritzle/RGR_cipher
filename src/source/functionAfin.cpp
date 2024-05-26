@@ -1,4 +1,4 @@
-#include "functionAfin.h"
+#include "../headers/functionAfin.h"
 
 void encryptMessageAfin(string &encryptText, const string &message, int a, int b, int module)
 {

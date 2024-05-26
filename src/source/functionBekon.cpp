@@ -1,4 +1,4 @@
-#include "functionBekon.h"
+#include "../headers/functionBekon.h"
 
 map<char, int> generateRandomTableKeyBekon()
 {
@@ -13,7 +13,7 @@ map<char, int> generateRandomTableKeyBekon()
 
     string key = "";
 
-    ofstream file("tableKeyBekon.txt", std::ios::out);
+    ofstream file("../txtFile/tableKeyBekon.txt", std::ios::out);
     if (!file.is_open())
     {
         throw std::runtime_error("Не удалось открыть файл 'tableKeyBekon.txt'");
@@ -87,7 +87,7 @@ void encryptMessageBekon(string &encryptText, const string &message, vector<char
         encryptText += encryptChar;
     }
 
-    writeToFile(binText, "binEncryptedBekon.txt");
+    writeToFile(binText, "../txtFile/binEncryptedBekon.txt");
 }
 
 string decryptSimbolBekon(string enWord, vector<char> &meaning0, vector<char> &meaning1)
