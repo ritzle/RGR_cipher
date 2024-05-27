@@ -100,6 +100,7 @@ MetkaIntputParametrsEncryption:
     // шифруем текст
     string encryptedMessage = "";
     encryptMessageAfin(encryptedMessage, message, a, b, module);
+    cout << "\n Encrypted text: " << encryptedMessage << endl;
     writeToFile(encryptedMessage, "../txtFile/encryptedMessage.txt");
 
     // расшифровываем текст
@@ -156,6 +157,7 @@ MetkaIntputParametrsDecryption:
 
     string decryptedMessage = "";
     decryptMessageAfin(decryptedMessage, encryptedMessage, decA, decB, decModule);
+    cout << "\n Decrypted text: " << decryptedMessage << endl;
     writeToFile(decryptedMessage, "../txtFile/decryptedMessage.txt");
 }
 
@@ -238,6 +240,7 @@ MetkaIntputKeyEncrypted:
 
     string encryptedMessage = "";
     encryptMessageVernam(encryptedMessage, message, key);
+    cout << "\n Encrypted text: " << encryptedMessage << endl;
     writeToFile(encryptedMessage, "../txtFile/encryptedMessage.txt");
 
     // расшифровка текста
@@ -274,6 +277,7 @@ MetkaIntputKeyDecrypted:
 
     string decryptedMessage = "";
     decryptMessageVernam(decryptedMessage, encryptedMessage, decKey);
+    cout << "\n Decrypted text: " << decryptedMessage << endl;
     writeToFile(decryptedMessage, "../txtFile/decryptedMessage.txt");
 
     cout << endl;
@@ -370,6 +374,7 @@ MetkaIntputKeyEncrypted:
 
     string encryptedMessage = "";
     encryptMessageBekon(encryptedMessage, message, meaningEncrypt0, meaningEncrypt1);
+    cout << "\n Encrypted text: " << encryptedMessage << endl;
     writeToFile(encryptedMessage, "../txtFile/encryptedMessage.txt");
 
     // расшифровка
@@ -411,6 +416,7 @@ MetkaIntputKeyDecrypted:
 
     string decryptedMessage = "";
     decryptMessageBekon(decryptedMessage, encryptedMessage, meaningDecrypt0, meaningDecrypt1);
+    cout << "\n Decrypted text: " << decryptedMessage << endl;
     writeToFile(decryptedMessage, "../txtFile/decryptedMessage.txt");
 }
 
