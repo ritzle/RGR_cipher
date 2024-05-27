@@ -7,12 +7,14 @@
 #include "functionRSA.h"
 #include "functionSkitala.h"
 
+#include <filesystem>
 
-void isValidSystemPassword();
 void Affin();
 void Vernam();
 void Bacon();
 void RSA();
 void Skitala();
+
+void isValidSystemPassword();
 
 #endif

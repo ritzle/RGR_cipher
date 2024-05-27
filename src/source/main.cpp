@@ -1,12 +1,14 @@
 #include "../headers/ciphers.h"
+#include <iomanip>
 
 int main()
 {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
+    cout << "--------------------ENCRYPTOR--------------------" << endl;
 
     isValidSystemPassword();
-    
+
     string cipherType;
 
     while (true)
@@ -22,27 +24,27 @@ int main()
         else if (cipherType == "Affine")
         {
             Affin();
-            cout << "the result was successfully recorded\n";
+            cout << "\n the result was successfully recorded\n\n";
         }
         else if (cipherType == "Vernam")
         {
             Vernam();
-            cout << "the result was successfully recorded\n";
+            cout << "\n the result was successfully recorded\n\n";
         }
         else if (cipherType == "Bacon")
         {
             Bacon();
-            cout << "the result was successfully recorded\n";
+            cout << "\n the result was successfully recorded\n\n";
         }
         else if (cipherType == "RSA")
         {
             RSA();
-            cout << "the result was successfully recorded\n";
+            cout << "\n the result was successfully recorded\n\n";
         }
         else if (cipherType == "Skitala")
         {
             Skitala();
-            cout << "the result was successfully recorded\n";
+            cout << "\n the result was successfully recorded\n\n";
         }
         else
         {

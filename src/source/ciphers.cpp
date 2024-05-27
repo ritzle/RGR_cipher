@@ -458,15 +458,13 @@ void RSA()
     }
 }
 
-
-
 void Skitala()
 {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
-	int diameter = 0;
-    
+    int diameter = 0;
+
     string message;
 
     cout << "Cipher Skitala" << endl;
@@ -479,56 +477,52 @@ void Skitala()
         cin >> s;
         switch (s)
         {
-        case('1'):
+        case ('1'):
             cout << endl;
             encodeScytaleFile();
             cout << endl;
             break;
-        case('2'):
+        case ('2'):
             cout << endl;
             decodeScytaleFile();
             cout << endl;
             break;
-        case('3'):
+        case ('3'):
             cout << endl;
             cout << "enter text to encrypt\n<<<";
             cin.ignore(); // Очистка буфера ввода
             getline(cin, message);
             message = encodeScytaleConsole(message);
-            cout << message << endl;;
+            cout << message << endl;
+            ;
             cout << endl;
             break;
-        case('4'):
+        case ('4'):
             cout << endl;
             cout << decodeScytaleConsole(message) << endl;
             cout << endl;
             break;
-        case('E'):
+        case ('E'):
             return;
         default:
-            cout << "Unknown command. re-enter\n" << endl;
+            cout << "Unknown command. re-enter\n"
+                 << endl;
         }
-
     }
-
-
 }
-
-
 
 void isValidSystemPassword()
 {
     string systemPassword, userPassword;
     readingFile(systemPassword, "../txtFile/systemPassword.txt");
 
-    while(userPassword != systemPassword)
+    while (userPassword != systemPassword)
     {
-        cout<<"Enter password\n<<<";
+        cout << "Enter password\n<<<";
         cin >> userPassword;
-        if(userPassword != systemPassword)
+        if (userPassword != systemPassword)
         {
-            cout<<"Ooo-ooops.... This is the wrong password. Re-enter"<<endl;
+            cout << "Ooo-ooops.... This is the wrong password. Re-enter" << endl;
         }
-
     }
 }
